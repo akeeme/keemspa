@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Akeeme Black -->
+<!-- 12/13/20 -->
+<title>Form Validation</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Stalemate&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+			 .navbar{
+				list-style-type: none;
+				margin:-8px;
+				margin-top:-25px;
+				overflow: hidden;
+				background-color: #0000e5;
+				font-size:20px;
+				font-weight: bold;
+				padding: 15px 25px;
+				position: relative;
+				height:65px;
+            }
+            .nav-a{
+				display:block;
+                font-family: 'Montserrat', sans-serif;
+                margin-top:15px;
+				padding: 14px 16px;
+				font-size: 20px;
+				text-decoration: none;
+				color:#fff;
+				text-shadow: 0px 1px 50px#000000;
+				transition: color 0.3s ease-in-out;
+			}
+			.nav-a:hover{
+                color:#add8e6;
+            }
+            .list{
+                float:right;
+            }
+            .header1{
+				margin-left:80px;
+				font-family: 'Damion', cursive;
+				margin-bottom: -15px;
+				color:#fff;
+				letter-spacing: 2px;
+				font-size: 20px;
+				margin-top:5px;
+				transition: color 0.3s ease-in-out;
+			}
+			.header2{
+				color: #fff;
+				font-family: 'Rock Salt', cursive;
+				letter-spacing: 2px;
+				font-size: 20px;
+				margin-top:-5px;
+				transition: color 0.3s ease-in-out;
+			}
+			.header1:hover{
+				color:#add8e6;
+			}
+			.header2:hover{
+				color:#add8e6;
+            }
+            #form{
+            margin:auto;
+            margin-top: -30px;
+			width: 50%;
+            }
+            #comment{
+			height:100px;
+			width:400px;
+			font-size: 14px;
+			padding: 32px 20px;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            border: 2px solid #0000e5;
+            border-radius: 2px;
+            
+            }
+            .appt{
+                font-family: 'Stalemate', cursive;
+                font-size: 55px;
+                text-align: center;
+            }
+            .name-box{
+                width: 400px;
+                height: 45px;
+                border: 2px solid #0000e5;
+                border-radius: 2px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+            }
+            label{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 20px;
+                font-weight: 300;
+            }
+            .p-text{
+                font-family: 'Montserrat', sans-serif;
+                font-size: 20px;
+                font-weight: 300;
+            }
+            .required{
+                position: relative;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                background-color: #0000e5;
+                color: #fff;
+                height: 50px;
+                width: 300px;
+            }
+            .submit-box{
+                position: relative;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                background-color: #0000e5;
+                color: #fff;
+                height: 50px;
+                width: 100px;
+                margin-left: 150px;
+            }
+            .form-box{
+                background-color: #f1f1f1;
+                width: 60%;
+                margin:auto;
+                height: 1150px;
+            }
+            #val{
+                color: #add8e6;
+            }
+    </style>
+    <script>
+        function validation(){
+			var inputName = document.book.Name.value;
+			var inputEmail = document.book.Email.value;
+			var inputNumber = document.book.Number.value;
+			var inputLocation = document.book.Location.value;
+            var inputDay = document.book.Day.value;
+            var inputTime = document.book.Time.value;
+            
+            // var custName = document.getElementByName("Name").value;
+            // var custNum = document.getElementsByName("Number").value;
+            // var custLoc = document.getElementsByName("Location")
+			if(inputName.length == 0){
+				alert("Please provide your name!");
+				return false;
+			}
+			if(inputEmail.length == 0){
+				alert("Please provide your email!");
+				return false;
+			}
+			if(inputNumber.length < 10){
+				alert("Please provide a valid phone number of 10 digits with no spaces or dashes i.e 3333333333");
+				return false;
+			}
+            var options = document.getElementsByName("options[]");
+    
+    		if(options[0].checked==false && options[1].checked==false && options[2].checked==false) {
+        		alert('Please select a service!');
+        		return false;
+    			}
+
+			var rc_options = document.getElementsByName("rc_options[]");
+    
+			if(rc_options[0].checked==false && rc_options[1].checked==false) {
+				alert('Please check one of the options.');
+				return false;
+				}
+			var location = document.getElementById("location");
+        		if (location.value == "") {	
+					alert("Please select a location");
+					return false;
+			}
+			var day = document.getElementById("day");
+        		if (day.value == "") {	
+					alert("Please select a day");
+					return false;
+			}
+			var time = document.getElementById("time");
+        		if (time.value == "") {	
+					alert("Please select a time");
+					return false;
+			}
+
+			else{
+                alert("Thank you " + inputName + "! " + "Your order has been received! " + 
+                "You will attend our " + inputLocation + " location on " + inputDay + " at " + inputTime + ". See you there!");
+			}
+		}
+    </script>
+</head>
+<title>Form</title>
+
+<body>
+    <!-- navigation bar to make things easier for the visitor made from an unordered list and a tags -->
+    <div class="navigation" id="top">
+		<ul class="navbar">
+            <li class="list">
+			  	<a class="nav-a" id="val" href="val.html">Form Validation
+			  	</a>
+	  		</li>
+ 
+			<li class="list">
+			  	<a class="nav-a" id="formDoc" href="form.html">Form
+			  	</a>
+			</li>	  
+
+			<li class="list">
+				<a class="nav-a" id="home" href="index.html">Home
+			  	</a>
+            </li>
+            
+            <h1 class="header1">718-222-2222</h1>
+            <h1 class="header2">Keem's Spa and Resort</h1>
+		</ul>
+    </div>
+
+    <!-- starting of the form -->
+    <div class="form-box">
+        <h1 class="appt">Book An Appointment</h1>
+
+   
+    <div id="form">
+		
+		<form name = "book" onsubmit="return(validation());">
+
+        <label>Name: </label>
+        <br>
+		<input type = "text" name = "Name" class="name-box">
+		<br><br>
+        <label>Email: </label>
+        <br>
+		<input type = "email" name = "Email" class="name-box">
+		<br><br>
+        <label>Phone Number: </label>
+        <br>
+		<input type = "number" name ="Number" class="name-box">
+		<br><br>
+        <p class="p-text">Tell us About Yourself:</p>
+		<input id="comment" type="text" name="comment" placeholder="Type Here">
+		<br><br>
+        <label>Service:</label>
+        <br>
+		<input type = "checkbox" id = "spa" name = options[]>
+		<label value="Spa">Spa</label>
+		<input type = "checkbox" id = "nails" name = options[]>
+		<label value="Nails">Nails</label>
+		<input type = "checkbox" id = "resort" name = options[]>
+		<label value="Resort">Resort</label>
+		<br><br>
+        <label>Returning customer:</label>
+        <br>
+		<input type = "radio" id = "yes" name = rc_options[]>
+		<label>Yes</label>
+		<input type = "radio" id = "no" name = rc_options[]>
+		<label>No</label>
+		<br><br>
+        <label>Location:</label>
+        <br>
+		<select name = "Location" class="required" id = "location">
+			<option value="">[Provide which location]</option>
+			<option value="Queens">Queens</option>
+			<option value = "Brooklyn">Brooklyn</option>
+			<option value = "Manhattan">Manhattan</option>
+		</select>
+        <br><br>
+        <label>What day is best?</label>
+        <br>
+        
+		<select name = "Day" class="required" id = "day">
+			<option value="">[Choose your day]</option>
+			<option value="Monday">Monday</option>
+			<option value="Tuesday">Tuesday</option>
+			<option value="Wednesday">Wednesday</option>
+			<option value="Thursday">Thursday</option>
+			<option value="Friday">Friday</option>
+			<option value="Saturday">Saturday</option>
+			<option value="Sunday">Sunday</option>
+		</select>
+		<br><br>
+        <label>What's the best time for your appointment?</label>
+        <br>
+        
+		<select name = "Time" class="required" id = "time">
+			<option value ="">[Choose your time]</option>
+			<option value ="10 AM">10 AM</option>
+			<option value ="11 AM">11 AM</option>
+			<option value ="12 PM">12 PM</option>
+			<option value ="1 PM">1 PM</option>
+			<option value ="2 PM">2 PM</option>
+			<option value ="3 PM">3 PM</option>
+			<option value ="4 PM">4 PM</option>
+			<option value ="5 PM">5 PM</option>
+			<option value ="6 PM">6 PM</option>
+            <option value ="7 PM">7 PM</option>
+            <option value ="8 PM">8 PM</option>
+            <option value ="9 PM">9 PM</option>
+            <option value ="10 PM">10 PM</option>
+            <option value ="11 PM">11 PM</option>
+            <option value ="12 AM">12 AM</option>
+        </select>
+		<br><br>
+        <input type ="submit" value = "Submit" class="submit-box">
+        </form>
+        </div>
+        </div>
+    <!-- end of form -->
+    
+</body>
+</html>
